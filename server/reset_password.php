@@ -3,9 +3,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '/home8/slumber6/public_html/PHPMailer/src/Exception.php';
-require '/home8/slumber6/public_html/PHPMailer/src/PHPMailer.php';
-require '/home8/slumber6/public_html/PHPMailer/src/SMTP.php';
+require '/fluttermycuckoodb/public_html/PHPMailer/src/Exception.php';
+require '/fluttermycuckoodb/public_html/PHPMailer/src/PHPMailer.php';
+require '/fluttermycuckoodb/public_html/PHPMailer/src/SMTP.php';
 include_once("dbconnect.php");
 
 $email = $_POST['email'];
@@ -32,18 +32,18 @@ function sendEmail($otp,$newpass,$email){
     $mail = new PHPMailer(true);
     $mail->SMTPDebug = 0;                                               //Disable verbose debug output
     $mail->isSMTP();                                                    //Send using SMTP
-    $mail->Host       = 'mail.yck99.com';                          //Set the SMTP server to send through
+    $mail->Host       = 'mail.jh00.com';                          //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                           //Enable SMTP authentication
-    $mail->Username   = 'smtp@yck99.com';                  //SMTP username
+    $mail->Username   = 'smtp@jh00.com';                  //SMTP username
     $mail->Password   = 'P8CxH;6zak.43H';                                 //SMTP password
     $mail->SMTPSecure = 'tls';         
     $mail->Port       = 587;
     
-    $from = "smtp@yck99.com";
+    $from = "smtp@jh00.com";
     $to = $email;
-    $subject = "From Vegetableify. Reset your account";
+    $subject = "From Cuckoo. Reset your account";
     $message = "<p>Your account has been reset. Please login again using the information below.</p><br><br><h3>Password:".$newpass.
-    "</h3><br><br><a href='http://yck99.com/myshop/php/verify_account.php?email=".$email."&key=".$otp."'>Click Here to activate account</a>";
+    "</h3><br><br><a href='http://jh00.com/fluttermycuckoodb/php/verify_account.php?email=".$email."&key=".$otp."'>Click Here to activate account</a>";
     
     $mail->setFrom($from,"TouringHolic");
     $mail->addAddress($to);                                             //Add a recipient
