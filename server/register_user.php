@@ -3,9 +3,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '/home8/yckcom/public_html/PHPMailer/src/Exception.php';
-require '/home8/yckcom/public_html/PHPMailer/src/PHPMailer.php';
-require '/home8/yckcom/public_html/PHPMailer/src/SMTP.php';
+require '/fluttermycuckoodb/public_html/PHPMailer/src/Exception.php';
+require '/fluttermycuckoodb/public_html/PHPMailer/src/PHPMailer.php';
+require '/fluttermycuckoodb/public_html/PHPMailer/src/SMTP.php';
 
 include_once("dbconnect.php");
 $user_email = $_POST['email'];
@@ -28,18 +28,18 @@ function sendEmail($otp,$user_email){
     $mail = new PHPMailer(true); 
     $mail->SMTPDebug = 0; 
     $mail->isSMTP(); 
-    $mail->Host       = 'mail.yck99.com';
+    $mail->Host       = 'mail.jh00.com';
     $mail->SMTPAuth   = true; 
-    $mail->Username   = 'smtp@yck99.com'; 
+    $mail->Username   = 'smtp@jh00.com'; 
     $mail->Password   = 'P8CxH;6zak.43H';
     $mail->SMTPSecure = 'tls';         
     $mail->Port       = 587;
     
-    $from = "smtp@yck99.com";
+    $from = "smtp@jh00.com";
     $to = $user_email;
     $subject = "From Cuckoo. Please verify your account";
     $message = "<p>Click the below link to verify your account<br><br>
-    <a href='http://yck99.com/myshop/php/verify_account.php?email=".$user_email."&key=".$otp."'>Click Me</a>";
+    <a href='http://jh00.com/fluttermycuckoodb/php/verify_account.php?email=".$user_email."&key=".$otp."'>Click Me</a>";
     
     $mail->setFrom($from,"Cuckoo");
     $mail->addAddress($to);
